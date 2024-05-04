@@ -6,13 +6,15 @@
     <!-- Búsquedas -->
     <shared-search-box
       placeholder="Buscar por capital"
-      (onValue)="searchByCountry($event)"></shared-search-box>
+      (onValue)="searchByCountry($event)">
+    </shared-search-box>
   </div>
 </div>
 
 <div class="row">
   <div class="col">
     <!-- Tabla de resultados -->
-    Tabla de resultados
+    <hr>
+    <countries-table [countriesList]="countriesList"></countries-table>
   </div>
 </div>
