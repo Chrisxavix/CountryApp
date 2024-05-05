@@ -10,6 +10,7 @@ import { Country } from '../../interfaces/country.inferface';
 export class ByCapitalPageComponent {
 
   public countriesList: Country[] = [];
+  public isLoading: boolean = false;
 
   constructor(
     private countriesService: CountriesService,
@@ -18,8 +19,11 @@ export class ByCapitalPageComponent {
   }
 
   searchByCapital(term: string): void {
+    if(term === "") return;
+    this.isLoading = true;
     this.countriesService.searchCapital(term).subscribe( response => {
       this.countriesList = response;
+      this.isLoading = false;
     })
   }
 }
